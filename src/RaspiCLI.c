@@ -74,7 +74,7 @@ int raspicli_get_command_id(const COMMAND_LIST *commands, const int num_commands
    for (j = 0; j < num_commands; j++)
    {
       if (!strcmp(arg, commands[j].command) ||
-          !strcmp(arg, commands[j].abbrev))
+            !strcmp(arg, commands[j].abbrev))
       {
          // match
          command_id = commands[j].id;
@@ -106,8 +106,8 @@ void raspicli_display_help(const COMMAND_LIST *commands, const int num_commands)
 
    for (i = 0; i < num_commands; i++)
    {
-      fprintf(stderr, "-%s, -%s\t: %s\n", commands[i].abbrev,
-         commands[i].command, commands[i].help);
+      fprintf(stdout, "-%s, -%s\t: %s\n", commands[i].abbrev,
+              commands[i].command, commands[i].help);
    }
 }
 
@@ -123,7 +123,7 @@ int raspicli_map_xref(const char *str, const XREF_T *map, int num_refs)
 {
    int i;
 
-   for (i=0;i<num_refs;i++)
+   for (i=0; i<num_refs; i++)
    {
       if (!strcasecmp(str, map[i].mode))
       {
@@ -140,11 +140,11 @@ int raspicli_map_xref(const char *str, const XREF_T *map, int num_refs)
  * @param num_refs The number of items in the mapping data
  * @return const pointer to string, or NULL if no match
  */
-const char *raspicli_unmap_xref(const int en, const XREF_T *map, int num_refs)
+const char *raspicli_unmap_xref(const int en, XREF_T *map, int num_refs)
 {
    int i;
 
-   for (i=0;i<num_refs;i++)
+   for (i=0; i<num_refs; i++)
    {
       if (en == map[i].mmal_mode)
       {
