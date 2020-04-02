@@ -869,7 +869,8 @@ static void update_annotation_data(RASPIVID_STATE *state)
       raspicamcontrol_set_annotate(state->camera_component, config->camera_parameters.enable_annotate, text,
                        config->camera_parameters.annotate_text_size,
                        config->camera_parameters.annotate_text_colour,
-                       config->camera_parameters.annotate_bg_colour);
+                       config->camera_parameters.annotate_bg_colour,
+                       0, 0, 0); // justify[center], x_offset, y_offset FIXME NEW USERLAND
 
       free(text);
    }
@@ -879,7 +880,8 @@ static void update_annotation_data(RASPIVID_STATE *state)
                        config->camera_parameters.annotate_string,
                        config->camera_parameters.annotate_text_size,
                        config->camera_parameters.annotate_text_colour,
-                       config->camera_parameters.annotate_bg_colour);
+                       config->camera_parameters.annotate_bg_colour,
+                       0, 0, 0); // justify[center], x_offset, y_offset FIXME NEW USERLAND
    }
 }
 
